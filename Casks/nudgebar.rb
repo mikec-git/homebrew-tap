@@ -1,6 +1,6 @@
 cask "nudgebar" do
-  version "0.1.0"
-  sha256 "a3f55d106d1089f5f8c042adf903bdc2b175e95040c6d6b137d5ec2df99d229c"
+  version "0.1.1"
+  sha256 "2f818cd3c8e82139a02bb35354f512f6c9449742ff1d0a7ab2e970954bd5becf"
 
   url "https://github.com/mikec-git/nudgebar/releases/download/v#{version}/Nudgebar.zip"
   name "Nudgebar"
