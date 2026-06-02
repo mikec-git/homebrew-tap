@@ -11,8 +11,14 @@ cask "nudgebar" do
 
   app "Nudgebar.app"
 
-  # The app is ad-hoc signed (not yet notarized): on first launch, right-click ->
-  # Open, or run `xattr -dr com.apple.quarantine "$(brew --caskroom)/nudgebar/#{version}/Nudgebar.app"`.
+  # The app is ad-hoc signed (not yet notarized). Strip the quarantine flag Homebrew
+  # sets so it launches without a Gatekeeper "right-click -> Open". Remove this once
+  # the app is notarized with a Developer ID.
+  postflight do
+    system_command "/usr/bin/xattr",
+                   args: ["-dr", "com.apple.quarantine", "#{appdir}/Nudgebar.app"],
+                   sudo: false
+  end
 
   zap trash: [
     "~/Library/Application Support/Nudgebar",
